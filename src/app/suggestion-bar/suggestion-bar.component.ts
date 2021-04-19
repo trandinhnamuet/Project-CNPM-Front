@@ -1,3 +1,6 @@
+
+import { ProductService } from './../product.service';
+import { Product } from './../product';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuggestionBarComponent implements OnInit {
 
-  constructor() { }
+  listProduct: Product[] = []
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
 
-  
+  getProducts() {
+    this.listProduct = [];
+    this.productService.getProducts().subscribe( product =>
+      {
+        this.listProduct = product;
+      });
+  }
+
 }

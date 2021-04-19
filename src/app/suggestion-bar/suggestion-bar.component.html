@@ -1,1 +1,12 @@
 <p>Suggestion-bar : Suggest some top product to viewer</p>
+
+<div>
+  <ul>
+    <li *ngFor = "let listProduct of listProduct">
+      <a routerLink = '/product/{{listProduct.productCode}}'>
+        <img src="{{listProduct.imageLink}}" height="200px" width="=160px">
+        <br> {{listProduct.name}} <br>Giá: {{listProduct.price}} VND
+      </a>
+     </li>
+  </ul>
+</div>

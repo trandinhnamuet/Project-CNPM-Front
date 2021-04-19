@@ -4,3 +4,6 @@
 .inline-list{
   display: inline;
 }
+li{
+  border: solid dimgrey 5px;
+}

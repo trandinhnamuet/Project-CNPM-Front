@@ -17,10 +17,10 @@ export class SearchBoxComponent implements OnInit {
   constructor(private productService : ProductService) { }
 
   ngOnInit(): void {
-    this.getCustomer();
+    this.getProducts();
   }
 
-  getCustomer() {
+  getProducts() {
     this.listProduct = [];
     this.productService.getProducts().subscribe( product =>
       {
