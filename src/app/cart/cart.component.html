@@ -1,0 +1,25 @@
+<ul>
+  <li *ngFor = "let productsInCart of productsInCart">
+    {{productsInCart.name}} {{productsInCart.price}} {{productsInCart.size}}
+    <img src="{{productsInCart.imageLink}}" width="300" height="300">
+  </li>
+</ul>
+
+<div>
+  <label for="name">Name:</label>
+  <input #customerName>
+</div>
+
+<div>
+  <label for="customerAddress">Address:</label>
+  <input #customerAddress>
+</div>
+
+<div>
+  <label for="phoneNumber">Phone Number:</label>
+  <input #phoneNumber>
+</div>
+
+<h2>Total Price: {{totalPrice}} VNĐ</h2>
+
+<button (click) = "buyNow(customerName.value, customerAddress.value, phoneNumber.value)">Buy Now</button>
