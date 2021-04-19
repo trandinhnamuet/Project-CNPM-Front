@@ -16,8 +16,8 @@ export class ProductlineService {
 }
 
 export const ProductlineList: Productline[] = [
-  {productLine: 'Quan ao nam', textDescription: 'Quan ao danh cho mua he', imageUrl: ''},
-  {productLine: 'Quan ao nu', textDescription: 'Quan ao danh cho mua dong', imageUrl: ''},
-  {productLine: 'Phu kien', textDescription: 'Quan ao danh cho the thao', imageUrl: ''},
-  {productLine: 'Quan ao tre em', textDescription: 'Quan ao danh cho tre so sinh', imageUrl: ''}
+  {productLine: 'Quan ao nam', textDescription: 'Quan ao danh cho mua he'},
+  {productLine: 'Quan ao nu', textDescription: 'Quan ao danh cho mua dong'},
+  {productLine: 'Phu kien', textDescription: 'Quan ao danh cho the thao'},
+  {productLine: 'Quan ao tre em', textDescription: 'Quan ao danh cho tre so sinh'}
 ]

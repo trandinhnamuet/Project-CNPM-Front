@@ -3,9 +3,9 @@ export interface Product {
   name: string;
   price: number;
   entryDay: Date;
-  productType: string;
+  productline: string;
   size: string;
-  brand: string;
+  brand: string;  
   imageLink: string;
   quantityInStock: number;
 }

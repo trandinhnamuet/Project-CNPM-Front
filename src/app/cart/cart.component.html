@@ -2,6 +2,7 @@
   <li *ngFor = "let productsInCart of productsInCart">
     {{productsInCart.name}} {{productsInCart.price}} {{productsInCart.size}}
     <img src="{{productsInCart.imageLink}}" width="300" height="300">
+    <input type="number" value="1">
   </li>
 </ul>
 
@@ -19,6 +20,13 @@
   <label for="phoneNumber">Phone Number:</label>
   <input #phoneNumber>
 </div>
+
+<div>
+  <label for="dateOfBirth">Birthday:</label>
+  <input #dateOfBirth>
+</div>
+
+
 
 <h2>Total Price: {{totalPrice}} VNĐ</h2>
 

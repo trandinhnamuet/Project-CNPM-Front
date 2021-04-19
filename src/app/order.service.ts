@@ -13,4 +13,9 @@ export class OrderService {
   postOrder(newOrder: Order): Observable<Order> {
     return this.http.post<Order>('https://localhost:44361/api/orders', newOrder);
   }
+
+  getOrders(): Observable<Order[]> {
+    console.log('runned get');
+    return this.http.get<Order[]>('https://localhost:44361/api/customers');
+  }
 }
