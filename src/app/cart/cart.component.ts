@@ -34,6 +34,8 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.productsInCart = this.cartService.items;
     this.totalPrice = this.cartService.totalPrice;
+
+    this.createTestCart();
   }
 
   buyNow(customerName: string, customerAddress: string, phoneNumber: number) {
@@ -98,5 +100,11 @@ export class CartComponent implements OnInit {
 
   getNewCustomerCode(): number {
     return this.customerList.length + 1;
+  }
+  createTestCart(){
+    this.productService.getProducts().subscribe(p =>
+      {
+        this.productsInCart = p;
+      });
   }
 }

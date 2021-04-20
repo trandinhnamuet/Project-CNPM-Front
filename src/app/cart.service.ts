@@ -1,3 +1,4 @@
+import { ProductService } from './product.service';
 import { OrderService } from './order.service';
 import { CustomerService } from './customer.service';
 import { Customer } from './customer';
@@ -16,8 +17,9 @@ export class CartService {
   constructor(
     private http: HttpClient,
     private customerService: CustomerService,
-    private orderService: OrderService
-    ) { }
+    private orderService: OrderService,
+    private productService: ProductService
+    ) {}
 
   addToCart(product: Product) {
     this.items.push(product);

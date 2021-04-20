@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LeftBarComponent } from './left-bar/left-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     RightBarComponent,
     ProductDetailsComponent,
     MainPageComponent,
-    CartComponent
+    CartComponent,
+    LeftBarComponent
   ],
   imports: [
     BrowserModule,

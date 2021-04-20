@@ -1,9 +1,9 @@
 
 <p></p>
-<div>
+<div >
   <label for=""></label>
-  <img src="https://i.ibb.co/PZ4VnDN/kinh-lup.png" width="37px" height="37px">
-  <input id=""  [(ngModel)] = 'searchingWord' (input) = search(searchingWord) (keyup.enter) = "searchingWord = ''">
+  <img src="https://i.ibb.co/PZ4VnDN/kinh-lup.png" class="search-box-image">
+  <input class="search-box" id=""  [(ngModel)] = 'searchingWord' (input) = search(searchingWord) (keyup.enter) = "searchingWord = ''">
 
   <ul *ngIf = "searchingWord != ''">
     <li *ngFor = 'let searchResult of searchResult'>
