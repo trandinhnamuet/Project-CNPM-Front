@@ -1,3 +1,32 @@
+
+  <div class="column">
+    <app-top-bar></app-top-bar>
+  </div>
+  <div class="column">
+    <app-option-bar></app-option-bar>
+  </div>
+  <div class="column">
+    <div class="row">
+      <div class="col-md-2" style="background-color: rgb(192, 192, 192)"> <!--darkred rgb(155, 101, 0)-->
+        <app-left-bar></app-left-bar>
+      </div>
+      <div class="col-md-8" style="background-color:#ececec">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-md-2" style="background-color: rgb(192, 192, 192)">
+        <app-right-bar></app-right-bar>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!--
 <app-top-bar></app-top-bar>
 <app-option-bar></app-option-bar>
 <app-left-bar></app-left-bar>
@@ -5,3 +34,4 @@
 <router-outlet></router-outlet>
 
 <app-right-bar></app-right-bar>
+-->

@@ -1,15 +1,19 @@
 
-<p></p>
-<div >
-  <label for=""></label>
-  <img src="https://i.ibb.co/PZ4VnDN/kinh-lup.png" class="search-box-image">
-  <input class="search-box" id=""  [(ngModel)] = 'searchingWord' (input) = search(searchingWord) (keyup.enter) = "searchingWord = ''">
 
-  <ul *ngIf = "searchingWord != ''">
-    <li *ngFor = 'let searchResult of searchResult'>
-      <a routerLink = '/product/{{searchResult.productCode}}' class = "red" (click) = "searchingWord = ''">
-        {{searchResult.name}}
-      </a>
-    </li>
-  </ul>
+<div class="form-inline my-2 my-lg-0">
+  <label for=""></label>
+  <img src="https://i.ibb.co/PZ4VnDN/kinh-lup.png" class="search-box-image" width="30px" height="30px">
+  <input class="form-control mr-sm-2 input-" id=""  [(ngModel)] = 'searchingWord' (input) = search(searchingWord) (keyup.enter) = "searchingWord = ''">
+  <button class="btn btn-outline-success my-2 my-sm-0 search-box-" type="submit">Search</button>
+
+  <div class="dropdown">
+    <ul  class="dropdown-"  *ngIf = "searchingWord != ''">
+      <li class="dropdown-context-" *ngFor = 'let searchResult of searchResult'>
+        <a routerLink = '/product/{{searchResult.productCode}}' class = "red" (click) = "searchingWord = ''">
+          {{searchResult.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
+

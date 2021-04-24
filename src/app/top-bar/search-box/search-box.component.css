@@ -1,9 +1,32 @@
-.search-box {
-  width: 10%;
-  height: 34px;
+.search-box-{
+  border-width: 2px;
+  font-weight: 500;
 }
 
-.search-box-image {
-  width: 34px;
-  height: 34px;
+.input-{
+  border-width: 2px;
+  font-weight: 500;
+  position: relative;
 }
+
+/*
+.dropdown-{
+  position: absolute;
+  top: 19px;
+  right: 105px;
+
+}
+
+.dropdown-context-{
+  display: block !important ;
+  list-style: none;
+  border: solid 1px red;
+  border-bottom: none;
+
+  width: 200px;
+  height: 20px;
+}
+
+.dropdown-context-:last-child{
+  border-bottom: solid 1px red;
+} */

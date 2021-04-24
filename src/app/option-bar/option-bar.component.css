@@ -1,28 +1,29 @@
-
-.inline-list{
-  display: inline;
+.color-{
+  background-color: rgb(143, 252, 148);
 }
 
-.option-bar{
-  display: block;
-  color:aquamarine;
+.option-bar-{
+  margin-left: 16%;
+  font-weight: 400;
+  font-size: 20px;
+
+}
+
+.item-{
+  border: 10px red;
+  width: 200px;
+  height: 50px;
   text-align: center;
-  padding: 14px 16px;
-  width: 100%;
-  height: 100px;
-  background-color:darkorchid;
+}
+.item-:hover{
+  background-color: rgb(57, 199, 255);
 }
 
-a {
-  padding: 14px;
-  text-decoration: none;
-  color: white  ;
-  float: left;
-  width: 25%;
-  height: 100px;
-}
-
-a:hover {
-  background-color: #db7093;
+.dropbtn {
+  background-color: #4CAF50;
   color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
