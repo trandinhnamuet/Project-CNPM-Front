@@ -7,8 +7,8 @@
 </ul>
 <h1>_________________________________________________________________________________</h1>-->
 
-<div class="mid">
-  <div class="container">
+<div class="container-fluid">
+  <div>
     <table class="table">
       <tr>
         <th>Product</th>
@@ -23,30 +23,31 @@
     </table>
   </div>
 
-  <div>
-    <label for="name">Name:</label>
-    <input #customerName>
+  <div class="input-box-">
+    <input #customerName placeholder="Họ & Tên" style="width: 55%; height: 40px;">
   </div>
 
-  <div>
-    <label for="customerAddress">Address:</label>
-    <input #customerAddress>
+  <div class="input-box-">
+    <input #customerAddress placeholder="Địa Chỉ" style="width: 55%; height: 40px;">
   </div>
 
-  <div>
-    <label for="phoneNumber">Phone Number:</label>
-    <input #phoneNumber>
+  <div class="input-box-">
+    <input #phoneNumber placeholder="Số điện thoại" style="width: 55%; height: 40px;">
   </div>
 
-  <div>
-    <label for="dateOfBirth">Birthday:</label>
-    <input #dateOfBirth>
+  <div class="input-box-">
+    <input #dateOfBirth placeholder="Ngày sinh" style="width: 55%; height: 40px;">
   </div>
 
 
 
   <h2>Total Price: {{totalPrice}} VNĐ</h2>
 
-  <button (click) = "buyNow(customerName.value, customerAddress.value, phoneNumber.value)">Buy Now</button>
+  <button class="btn btn-outline-success my-2 my-sm-0 buy-"
+    (click) = "buyNow(customerName.value, customerAddress.value, phoneNumber.value)">
+    <i class="fa fa-shopping-cart"></i>
+    Buy Now
+  </button>
+
 </div>
 
