@@ -11,3 +11,8 @@ h2 {
 .buy- {
   margin-left: 44%;
 }
+
+td input {
+  width: 50px;
+  text-align: center;
+}

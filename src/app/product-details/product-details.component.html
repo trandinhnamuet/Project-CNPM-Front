@@ -2,5 +2,6 @@
 <p>Size: {{product.size}}</p>
 <p>Price: {{product.price}}</p>
 <p>Brand: {{product.brand}}</p>
-<button class="btn btn-primary" (click) = "addToCart()">Add To Card</button>
+<button *ngIf="!addedToCart" class="btn btn-primary" (click) = "addToCart()">Add To Card</button>
+<button *ngIf="addedToCart" class="btn btn-primary" (click) = "removeFromCart()">Remove From Card</button>
 <img src = "{{product.imageLink}}" height="700px" width="500px">

@@ -104,7 +104,9 @@ export class CartComponent implements OnInit {
   createTestCart(){
     this.productService.getProducts().subscribe(p =>
       {
-        this.productsInCart = p;
+        //this.productsInCart = p;
+        this.productsInCart.push(p[Math.floor(Math.random() * (12))]);
+        this.productsInCart.push(p[Math.floor(Math.random() * (12))]);
       });
   }
 }

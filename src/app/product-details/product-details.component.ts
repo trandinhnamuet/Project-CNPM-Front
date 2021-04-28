@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product;
+  addedToCart: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,5 +33,10 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart() {
     this.cartService.addToCart(this.product);
+    this.addedToCart = true;
+  }
+
+  removeFromCart() {
+    this.addedToCart = false;
   }
 }

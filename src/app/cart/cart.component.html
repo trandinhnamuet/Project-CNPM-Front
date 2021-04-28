@@ -1,28 +1,25 @@
-<!--<ul>
-  <li *ngFor = "let productsInCart of productsInCart">
-    {{productsInCart.name}} {{productsInCart.price}} {{productsInCart.size}}
-    <img src="{{productsInCart.imageLink}}" width="300" height="300">
-    <input type="number" value="1">
-  </li>
-</ul>
-<h1>_________________________________________________________________________________</h1>-->
 
 <div class="container-fluid">
   <div>
     <table class="table">
       <tr>
         <th>Product</th>
-        <th>Price</th>
+        <th>Price Each</th>
         <th>Image</th>
+        <th>Quantity</th>
       </tr>
       <tr *ngFor = "let productsInCart of productsInCart">
         <td>{{productsInCart.name}}</td>
         <td>{{productsInCart.price}} VND</td>
         <td><img src="{{productsInCart.imageLink}}" width="100" height="100"></td>
+        <td><input type="number" value = 1></td>
       </tr>
     </table>
   </div>
 
+  <h2>Total Price: {{totalPrice}} VNĐ</h2>
+
+  <br>
   <div class="input-box-">
     <input #customerName placeholder="Họ & Tên" style="width: 55%; height: 40px;">
   </div>
@@ -39,15 +36,14 @@
     <input #dateOfBirth placeholder="Ngày sinh" style="width: 55%; height: 40px;">
   </div>
 
-
-
-  <h2>Total Price: {{totalPrice}} VNĐ</h2>
+  <br>
 
   <button class="btn btn-outline-success my-2 my-sm-0 buy-"
     (click) = "buyNow(customerName.value, customerAddress.value, phoneNumber.value)">
     <i class="fa fa-shopping-cart"></i>
     Buy Now
   </button>
+
 
 </div>
 
