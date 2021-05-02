@@ -21,25 +21,24 @@
 
     <br>
     <div class="input-box-">
-      <input #customerName placeholder="Họ & Tên" style="width: 55%; height: 40px;">
+      <input [(ngModel)] = 'customerName' placeholder="Họ & Tên" style="width: 55%; height: 40px;">
     </div>
 
     <div class="input-box-">
-      <input #customerAddress placeholder="Địa Chỉ" style="width: 55%; height: 40px;">
+      <input [(ngModel)] = 'customerAddress' placeholder="Địa Chỉ" style="width: 55%; height: 40px;">
     </div>
 
     <div class="input-box-">
-      <input #phoneNumber placeholder="Số điện thoại" style="width: 55%; height: 40px;">
+      <input [(ngModel)] = 'phoneNumber' placeholder="Số điện thoại" style="width: 55%; height: 40px;">
     </div>
 
     <div class="input-box-">
-      <input #dateOfBirth placeholder="Ngày sinh" style="width: 55%; height: 40px;">
+      <input [(ngModel)] = 'dateOfBirth' placeholder="Ngày sinh" style="width: 55%; height: 40px;">
     </div>
-
     <br>
 
     <button class="btn btn-outline-success my-2 my-sm-0 buy-"
-      (click) = "buyNow(customerName.value, customerAddress.value, phoneNumber.value)">
+      (click) = "buyNow(customerName, customerAddress, phoneNumber)" (click) = "customerName=''; customerAddress=''; phoneNumber=null; dateOfBirth=''">
       <i class="fa fa-shopping-cart"></i>
       Buy Now
     </button>
