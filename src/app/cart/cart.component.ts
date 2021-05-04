@@ -122,5 +122,5 @@ export class CartComponent implements OnInit {
     this.phoneNumber = null;
   }
 
-  
+
 }
