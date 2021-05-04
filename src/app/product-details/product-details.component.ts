@@ -14,6 +14,7 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   addedToCart: boolean = false;
 
+  boolVar: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -22,13 +23,14 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct();
-    console.log('12312ase');
+    this.boolVar = true;
   }
 
   getProduct(): void {
     const productCode = Number(this.route.snapshot.paramMap.get('productCode'));
     this.productService.getProduct(productCode)
-      .subscribe(hero => this.product = hero);
+      .subscribe(p => this.product = p);
+
   }
 
   addToCart() {

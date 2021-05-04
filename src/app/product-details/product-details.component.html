@@ -1,14 +1,4 @@
-<!--
-<p>Product Name: {{product.name}}</p>
-<p>Size: {{product.size}}</p>
-<p>Price: {{product.price}}</p>
-<p>Brand: {{product.brand}}</p>
-<button *ngIf="!addedToCart" class="btn btn-primary" (click) = "addToCart()">Add To Card</button>
-<button *ngIf="addedToCart" class="btn btn-primary" (click) = "removeFromCart()">Remove From Card</button>
-<img src = "{{product.imageLink}}" height="700px" width="500px">
--->
-
-<div class="row">
+<div *ngIf = "boolVar" class="row">
   <div class="col-md-6">
     <img src = "{{product.imageLink}}" height="700px" width="500px">
 

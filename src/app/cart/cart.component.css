@@ -20,3 +20,15 @@ td input {
 .all- {
   min-height: 750px;
 }
+
+.alert- {
+  font-size: 20px;
+  color: red;
+  text-align: center;
+}
+
+.cart-status- {
+  font-size: 20px;
+  color: green;
+  text-align: center;
+}

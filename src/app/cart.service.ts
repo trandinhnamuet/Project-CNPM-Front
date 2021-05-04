@@ -1,3 +1,4 @@
+
 import { ProductService } from './product.service';
 import { OrderService } from './order.service';
 import { CustomerService } from './customer.service';
@@ -17,8 +18,7 @@ export class CartService {
   constructor(
     private http: HttpClient,
     private customerService: CustomerService,
-    private orderService: OrderService,
-    private productService: ProductService
+    private orderService: OrderService
     ) {}
 
   addToCart(product: Product) {
@@ -30,9 +30,12 @@ export class CartService {
     return this.items;
   }
 
-  buyNow(customer: Customer, order: Order) {
+  buyNow(customer: Customer, order: Order[]) {
       this.customerService.postCustomer(customer).subscribe();
-      this.orderService.postOrder(order).subscribe();
+      /*order.forEach(or => {
+        this.orderService.postOrder(or).subscribe();
+      })*/
+
       console.log('addCart to database successed')
       /*this.items.forEach(i => {
         postOrderDetail(i);

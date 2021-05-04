@@ -21,9 +21,17 @@ export class CartComponent implements OnInit {
   orderList: Order[] = [];
   totalPrice;
   customer: Customer;
-  order: Order;
-  payment: Payment;
+  order: Order[] = [];
+  or: Order;
+  newOrderCode: number = this.getNewOrderCode();
 
+  customerName : string;
+  customerAddress : string;
+  phoneNumber : number;
+  dateOfBirth : Date;
+
+  nothingTyped: boolean = false;
+  cartSent: boolean = false;
   constructor(
     private cartService: CartService,
     private productService: ProductService,
@@ -35,54 +43,51 @@ export class CartComponent implements OnInit {
     this.productsInCart = this.cartService.items;
     this.totalPrice = this.cartService.totalPrice;
 
-    this.createTestCart();
+    this.customerService.getCustomers().subscribe(c => {
+      this.customerList = c;
+    });
+    this.customerList.forEach(c => {
+      console.log(c.name);
+      console.log("+++++++++++++++++++++++++");
+    });
+    this.clearAll();
+    //this.createTestCart();
   }
 
-  buyNow(customerName: string, customerAddress: string, phoneNumber: number) {
-    if (!this.customerExisted(customerName, phoneNumber)) {
-      this.customer = {
-        customerCode: this.getNewCustomerCode(),
-        name: customerName,
-        dateOfBirth: new Date("2021-01-01"),
-        phoneNumber: phoneNumber,
-        address: customerAddress,
-        purchaseNumber: 1
+  buyNow() {
+    if (this.customerName == null || this.customerAddress == null || this.phoneNumber == null || this.dateOfBirth == null) {
+      this.nothingTyped = true;
+      return;
     }
+    console.log(this.getNewCustomerCode());
+    this.customer = {
+      customerCode: this.getNewCustomerCode() + 1,
+      name: this.customerName,
+      dateOfBirth: new Date(this.dateOfBirth),
+      phoneNumber: this.phoneNumber,
+      address: this.customerAddress,
+      purchaseNumber: 1
     }
-    this.order = {
-      OrderCode: this.getNewOrderCode(),
-      CustomerCode: this.customer.customerCode,
-      ProductCode: 123,
-      QuantityOrdered: 2,
-      OrderDate: new Date(this.today()),
-      RequiredDate: new Date("2050-01-01"),
-      ShippedDate: new Date("2050-01-01"),
-      Status: "Not Shipped"
-    }
-    /*this.payment = {
-      PaymentCode: string;
-      OrderCode: string;
-      PaymentDate: Date;
-      Amount: number;
-      PaymentType: string;
-    }*/
+    this.productsInCart.forEach(p => {
+      this.or = {
+        OrderCode: this.newOrderCode++,
+        CustomerCode: this.customer.customerCode,
+        ProductCode: p.productCode,
+        QuantityOrdered: 1,
+        OrderDate: new Date(this.today()),
+        RequiredDate: new Date("2050-01-01"),
+        ShippedDate: new Date("2050-01-01"),
+        Status: "Not Shipped"
+      }
+      this.order.push(this.or);
+    })
+
+
     this.cartService.buyNow(this.customer, this.order);
+    this.cartSent = true;
+    this.clearAll();
   }
 
-  customerExisted(customerName: string, phoneNumber: number): boolean{
-    this.customerService.getCustomers().subscribe( customer =>
-      {
-        this.customerList = customer;
-      });
-      this.customerList.forEach(p =>
-      {
-        if(p.name == customerName && p.phoneNumber == phoneNumber) {
-          this.customer = p;
-          return true;
-        }
-      });
-      return false;
-  }
 
   today(): Date{
     let today = new Date();
@@ -109,4 +114,13 @@ export class CartComponent implements OnInit {
         this.productsInCart.push(p[Math.floor(Math.random() * (12))]);
       });
   }
+
+  clearAll() {
+    this.customerAddress = null;
+    this.customerName = null;
+    this.dateOfBirth = null;
+    this.phoneNumber = null;
+  }
+
+  
 }

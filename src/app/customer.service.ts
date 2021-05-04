@@ -9,7 +9,7 @@ import { Customer } from './customer';
 })
 export class CustomerService {
   urlLink: string;
-  constructor(private http: HttpClient) { console.log('runned construct');}
+  constructor(private http: HttpClient) {}
 
   getCustomers(): Observable<Customer[]> {
     console.log('runned get');
