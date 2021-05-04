@@ -3,6 +3,7 @@ import { ProductService } from './../product.service';
 import { Product } from './../product';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { concat } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -11,34 +12,45 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: Product;
-  addedToCart: boolean = false;
-
-  boolVar: boolean = false;
+  product: Product = {
+    productCode: null,
+    name: null,
+    price: null,
+    entryDay: null,
+    productline: null,
+    size: null,
+    brand: null,
+    imageLink: null,
+    quantityInStock: null
+  };
+  productCode : number;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private cartService: CartService
+    public cartService: CartService
   ) { }
 
   ngOnInit(): void {
     this.getProduct();
-    this.boolVar = true;
   }
 
-  getProduct(): void {
-    const productCode = Number(this.route.snapshot.paramMap.get('productCode'));
-    this.productService.getProduct(productCode)
-      .subscribe(p => this.product = p);
+  getProduct() {
+    this.productCode = Number(this.route.snapshot.paramMap.get('productCode'));
+    //this.productService.getProduct(this.productCode).subscribe(p => this.product = p);
+    this.productService.getProduct(this.productCode).toPromise().then(p => this.product = p);
 
+    if (!this.cartService.addedToCart.has(this.productCode)) {
+      this.cartService.addedToCart.set(this.productCode, false);
+    }
   }
 
   addToCart() {
     this.cartService.addToCart(this.product);
-    this.addedToCart = true;
+    this.cartService.addedToCart.set(this.productCode, true);
   }
 
   removeFromCart() {
-    this.addedToCart = false;
+    this.cartService.removeFromCart(this.product);
+    this.cartService.addedToCart.set(this.product.productCode, false);
   }
 }

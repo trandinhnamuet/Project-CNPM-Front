@@ -2,7 +2,6 @@ import { OrderService } from './../order.service';
 
 import { CustomerService } from './../customer.service';
 import { ProductService } from './../product.service';
-import { Payment } from './../payment';
 import { Order } from './../order';
 import { Customer } from './../customer';
 import { Product } from './../product';
@@ -32,24 +31,20 @@ export class CartComponent implements OnInit {
 
   nothingTyped: boolean = false;
   cartSent: boolean = false;
+
+  leng: number;
+
   constructor(
     private cartService: CartService,
     private productService: ProductService,
     private customerService: CustomerService,
     private orderService: OrderService
-    ) { }
+    ) {}
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.items;
     this.totalPrice = this.cartService.totalPrice;
 
-    this.customerService.getCustomers().subscribe(c => {
-      this.customerList = c;
-    });
-    this.customerList.forEach(c => {
-      console.log(c.name);
-      console.log("+++++++++++++++++++++++++");
-    });
     this.clearAll();
     //this.createTestCart();
   }
@@ -59,9 +54,8 @@ export class CartComponent implements OnInit {
       this.nothingTyped = true;
       return;
     }
-    console.log(this.getNewCustomerCode());
     this.customer = {
-      customerCode: this.getNewCustomerCode() + 1,
+      customerCode: this.getNewCustomerCode(),
       name: this.customerName,
       dateOfBirth: new Date(this.dateOfBirth),
       phoneNumber: this.phoneNumber,
@@ -96,16 +90,21 @@ export class CartComponent implements OnInit {
   }
 
   getNewOrderCode(): number {
-    this.orderService.getOrders().subscribe(order =>
+    /*this.orderService.getOrders().subscribe(order =>
       {
         this.orderList = order;
-      })
-      return this.orderList.length + 1;
+      })*/
+      return Math.floor(Math.random() * (999999 - 10 + 1) + 10);
   }
 
-  getNewCustomerCode(): number {
-    return this.customerList.length + 1;
+  getNewCustomerCode() {
+    /*this.customerService.getCustomers().subscribe(c => {
+      this.leng = c.length + 1;
+    });*/
+    //return this.leng;  //this.leng = 0 do bat dong bo => khong the dung
+    return Math.floor(Math.random() * (999999 - 10 + 1) + 10);
   }
+
   createTestCart(){
     this.productService.getProducts().subscribe(p =>
       {
@@ -121,6 +120,4 @@ export class CartComponent implements OnInit {
     this.dateOfBirth = null;
     this.phoneNumber = null;
   }
-
-
 }

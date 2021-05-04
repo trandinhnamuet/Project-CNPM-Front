@@ -8,11 +8,17 @@ import { Productline } from './productline';
 })
 export class ProductlineService {
   urlLink: string;
+  filting: string;
+  clicked: boolean = false;
   constructor(private http: HttpClient) { }
 
   /*getProductlines(): Observable<Productline[]> {
     return this.http.get<Productline[]>('https://localhost:44361/api/productlines');
   }*/
+  filter(proLine: Productline) {
+    this.filting = proLine.productLine;
+    this.clicked = true;
+  }
 }
 
 export const ProductlineList: Productline[] = [

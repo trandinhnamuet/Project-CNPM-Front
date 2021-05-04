@@ -8,7 +8,7 @@ import { Productline } from '../productline';
 })
 export class OptionBarComponent implements OnInit {
   productlineList: Productline[] = [];
-  constructor(private productlineService: ProductlineService) { }
+  constructor(public productlineService: ProductlineService) { }
 
   ngOnInit(): void {
     this.productlineList = ProductlineList;

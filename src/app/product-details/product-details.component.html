@@ -1,6 +1,6 @@
-<div *ngIf = "boolVar" class="row">
+<div class="row">
   <div class="col-md-6">
-    <img src = "{{product.imageLink}}" height="700px" width="500px">
+    <img  src="{{product.imageLink}}" height="700px" width="500px">
 
   </div>
   <div class="col-md-6">
@@ -11,7 +11,28 @@
     <p>_______________________________________________________________________</p>
     <b style="font-size: 30px; color: green;">{{product.price}} VNĐ</b> <p></p>
 
-    <button *ngIf="!addedToCart" class="btn btn-primary" (click) = "addToCart()">Add To Card</button>
-    <button *ngIf="addedToCart" class="btn btn-primary" (click) = "removeFromCart()">Remove From Card</button>
+    <button *ngIf="!this.cartService.addedToCart.get(productCode)" class="btn btn-primary" (click) = "addToCart()">Add To Card</button>
+    <button *ngIf="this.cartService.addedToCart.get(productCode)" class="btn btn-primary" (click) = "removeFromCart()">Remove From Card</button>
   </div>
 </div>
+
+<!--
+<div class="column">
+  <div class="row">
+
+    <div class="col-md-1" style="background-color:#ececec">
+      <ul>
+        <li *ngFor = 'let key of this.cartService.addedToCart.keys()'>
+          {{key}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-2" style="background-color: rgb(192, 192, 192)">
+      <ul>
+        <li *ngFor = 'let value of this.cartService.addedToCart.values()'>
+          {{value}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->

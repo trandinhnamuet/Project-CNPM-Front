@@ -12,7 +12,6 @@ export class ProductService {
 
   getProduct(productCode: number): Observable<Product> {
     this.urlLink = 'https://localhost:44361/api/products/' + productCode;
-    console.log(this.urlLink);
     return this.http.get<Product>(this.urlLink);
   }
 
